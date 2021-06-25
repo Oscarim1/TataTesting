@@ -90,8 +90,14 @@ public class CompararStep {
 
 	@Then("obtener datos de la especificaciones")
 	public void obtener_datos_de_la_especificaciones() throws IOException, InterruptedException {
-		//CSVWriter write = new CSVWriter(new FileWriter("//testData//ejemplo1.csv"));
+		CSVWriter write = new CSVWriter(new FileWriter("testData//ejemplo1.csv"));
 		
+		int lengthTitle = 6;
+		int lengthDescription = 6;
+		int lengthDescription2 = 6;
+		String [] title = new String[lengthTitle];
+		String [] description = new String[lengthDescription];
+		String [] description2 = new String[lengthDescription2];
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement elemento = driver.findElement(txtSummary);
@@ -104,18 +110,20 @@ public class CompararStep {
 	    for(int i = 1; i<=5; i++) {
 	    	String actualXpath = beforeXpath+i+afterXpath;
 	    	WebElement element = driver.findElement(By.xpath(actualXpath));
-	    	System.out.println(element.getText());
+	    	title[i] = element.getText();
+	    	System.out.println(title[i]);
+	    	//System.out.println(element.getText());
 	    		
 	    }
 	    Thread.sleep(5000);
-	    
-	    //*[@id="app"]/div[4]/div[6]/div[1]/div[2]/div[1]/table/tbody/tr[1]/td[1]
+	   
 	    String complementXpath = "]/td[1]";
 	    for(int i = 1; i<=5; i++) {
 	    	String actualXpath = beforeXpath+i+complementXpath;
 	    	WebElement element = driver.findElement(By.xpath(actualXpath));
-	    	System.out.println(element.getText());
-	    		
+	    	description[i] = element.getText();
+	    	System.out.println(description[i]);
+	    	//System.out.println(element.getText());
 	    }
 	    Thread.sleep(5000);
 	    
@@ -123,11 +131,20 @@ public class CompararStep {
 	    for(int i = 1; i<=5; i++) {
 	    	String actualXpath = beforeXpath+i+endXpath;
 	    	WebElement element = driver.findElement(By.xpath(actualXpath));
-	    	System.out.println(element.getText());
+	    	description2[i] = element.getText();
+	    	System.out.println(description2[i]);
+	    	//System.out.println(element.getText());
 	    		
 	    }
 	    Thread.sleep(5000);
 	    
+	    List list = new ArrayList();
+	    list.add(title);
+	    list.add(description);
+	    list.add(description2);
+	    
+	    write.writeAll(list);
+	    write.flush();
 	    /*
 	    List<WebElement> objList = driver.findElements(table);
 	    for (WebElement objCurrentList : objList) {
