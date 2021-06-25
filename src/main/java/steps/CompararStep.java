@@ -1,4 +1,5 @@
 package steps;
+import java.util.List;
 //import pages.CompararPage;
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +23,7 @@ public class CompararStep {
 	By btnSeleccionar2 = By.xpath("//*[@id=\"app\"]/div[4]/div[5]/ul/li[2]/div/div/div/span[2]/div/div/div[2]/ul/li[1]/div");
 	By btnComparar = By.xpath("//*[@id=\"app\"]/div[4]/div[5]/div/button");
 	By txtSummary = By.xpath("//*[@id=\"app\"]/div[4]/h5");
+	By table = By.xpath("//*[@id=\"app\"]/div[4]/div[6]/div[1]/div[2]/div[1]/table");
 	
 	//CompararPage page=null;
 	WebDriver driver = null;
@@ -86,6 +88,15 @@ public class CompararStep {
 		WebElement elemento = driver.findElement(txtSummary);
 		 //Script to scroll	
 	    js.executeScript("arguments[0].scrollIntoView();", elemento);
+	    
+	    List<WebElement> objList = driver.findElements(table);
+	    for (WebElement objCurrentList : objList) {
+	    	String strListText = objCurrentList.getText();
+	    	System.out.println(strListText);
+			System.out.println("");
+		}
+	    
+	    
 	    driver.close();
 	}
 }
