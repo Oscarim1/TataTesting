@@ -137,6 +137,7 @@ public class CompararStep {
 	    		
 	    }
 	    Thread.sleep(5000);
+	    System.out.println(title);
 	    
 	    List list = new ArrayList();
 	    list.add(title);
