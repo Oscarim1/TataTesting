@@ -8,4 +8,5 @@ Feature: Realizar la comparacion de dos laptops
     When agregar a la comparacion la primera laptop
     And seleccionar la segunda laptop
     When agregar a la comparacion la segunda laptop
+    And comparar los laptops
     Then obtener datos de la especificaciones
