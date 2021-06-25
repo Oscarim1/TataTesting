@@ -2,8 +2,7 @@
 Proyecto de testing automatizado con respecto a la siguiente historia de usuario
 
 ## Comparación de laptops
-* Abrir la web de
-[gadgetsnow] (https://www.gadgetsnow.com/compare-laptops) 
+* [Abrir la web degadgetsnow] (https://www.gadgetsnow.com/compare-laptops) 
 * Comparar Lenovo E41-80 con Lenovo B40-80 
 * Extraer todo está detalle desde el tabla “SUMMARY” en un Excel
 
