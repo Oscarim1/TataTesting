@@ -77,7 +77,8 @@ Se visualizará explícitamente si la prueba paso con éxito o hubo algún fallo
 Es posible que la generación del Excel con los datos relacionados con Summary se visualicen separados por comas, esto ser solucionará en releases futuros
 
 ### Visualizacion de la prueba
-Es posible que la generación del Excel con los datos relacionados con Summary se visualicen separados por comas, esto ser solucionará en releases futuros:
+Es posible que la generación del Excel con los datos relacionados con Summary se visualicen separados por comas, esto ser solucionará en releases futuros.
+También es posible que la generación del Excel tome unos segundos, sin embargo este es generado de manera exitosa.
 
 ### Trabajos futuros
 Se espera poder implementar el modelo Page object con el fin de poder generar codigo mas limpio y organizado.
