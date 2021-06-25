@@ -1,4 +1,7 @@
 package steps;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 //import pages.CompararPage;
 import java.util.concurrent.TimeUnit;
@@ -8,6 +11,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.opencsv.CSVWriter;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -83,20 +89,52 @@ public class CompararStep {
 	}
 
 	@Then("obtener datos de la especificaciones")
-	public void obtener_datos_de_la_especificaciones() {
+	public void obtener_datos_de_la_especificaciones() throws IOException, InterruptedException {
+		//CSVWriter write = new CSVWriter(new FileWriter("//testData//ejemplo1.csv"));
+		
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement elemento = driver.findElement(txtSummary);
 		 //Script to scroll	
 	    js.executeScript("arguments[0].scrollIntoView();", elemento);
 	    
+	    String beforeXpath = "//*[@id=\"app\"]/div[4]/div[6]/div[1]/div[2]/div[1]/table/tbody/tr[";
+	    String afterXpath = "]/th";
+	    
+	    for(int i = 1; i<=5; i++) {
+	    	String actualXpath = beforeXpath+i+afterXpath;
+	    	WebElement element = driver.findElement(By.xpath(actualXpath));
+	    	System.out.println(element.getText());
+	    		
+	    }
+	    Thread.sleep(5000);
+	    
+	    //*[@id="app"]/div[4]/div[6]/div[1]/div[2]/div[1]/table/tbody/tr[1]/td[1]
+	    String complementXpath = "]/td[1]";
+	    for(int i = 1; i<=5; i++) {
+	    	String actualXpath = beforeXpath+i+complementXpath;
+	    	WebElement element = driver.findElement(By.xpath(actualXpath));
+	    	System.out.println(element.getText());
+	    		
+	    }
+	    Thread.sleep(5000);
+	    
+	    String endXpath = "]/td[2]";
+	    for(int i = 1; i<=5; i++) {
+	    	String actualXpath = beforeXpath+i+endXpath;
+	    	WebElement element = driver.findElement(By.xpath(actualXpath));
+	    	System.out.println(element.getText());
+	    		
+	    }
+	    Thread.sleep(5000);
+	    
+	    /*
 	    List<WebElement> objList = driver.findElements(table);
 	    for (WebElement objCurrentList : objList) {
 	    	String strListText = objCurrentList.getText();
-	    	System.out.println(strListText);
-			System.out.println("");
-		}
-	    
-	    
+	    	String newline = System.getProperty("line.separator");
+	    	System.out.println(strListText + newline);
+		}*/
 	    driver.close();
 	}
 }
